@@ -1,0 +1,53 @@
+<div class="row w-100">
+    <div class="col">
+        <label for="arrSize" class="col-form-label ms-3">Array size : </label>
+        <input type="range" class="form-range w-75 pt-3 mx-2" min="5" max="100" step="5" id="arrSize" [(ngModel)]="arraySize"
+        (change)="generateArray()" [disabled]="disable" />
+        <label for="range" class="col-form-label">{{arraySize}}</label>
+    </div>
+    <div class="col">
+        <label for="speed" class="col-form-label ms-3">Speed : </label>
+        <input type="range" class="form-range w-75 pt-3 mx-2" min="0" max="300" step="10" id="speed" [(ngModel)]="timeout" [disabled]="disable" />
+        <label for="speed" class="col-form-label">{{timeout}}</label>
+    </div>
+    
+</div>
+
+<div class="w-100 mt-3 d-flex justify-content-center align-items-end">
+    <div class="d-flex justify-content-center">
+        <!-- [ngClass]="arr.length < 38 ? 'arr-fit' : 'arr-not-fit'" -->
+        <span [id]="index" *ngFor="let num of arr; let index = index;" 
+        class="arr">
+            <!-- {{arr.length < 38 ? num : ""}} -->
+        </span>
+    </div>
+</div>
+
+<div class="nav-div">
+    <nav class="navbar navbar-expand-lg border-body bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 d-flex justify-content-around" >
+            <li class="nav-item">
+              <button class="nav-link" (click)="generateArray()" [disabled]="disable">Generate Arrays</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" (click)="start('bubble')" [disabled]="disable">Bubble Sort</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" (click)="start('merge')" [disabled]="disable">Merge Sort</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" (click)="start('insertion')" [disabled]="disable">Insertion Sort</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" (click)="start('selection')" [disabled]="disable">Selectioin Sort</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" (click)="start('quick')" [disabled]="disable">Quick Sort</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
